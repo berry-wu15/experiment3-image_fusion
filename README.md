@@ -1,12 +1,3 @@
-<img width="1417" height="767" alt="image" src="https://github.com/user-attachments/assets/26ccf19f-72ee-445a-b2a9-807f1775c616" /># Experiment3-image_fusion(实验三-图像融合)
-
-##### This experiment achieves image stitching based on SIFT feature matching and perspective transformation.
-
-###### 这个实验基于SIFT特征匹配和透视变换完成图像拼接
-
-##
-
-
 ## 1.Experimental Purpose
 ##### To stitch two images with overlapping regions into a complete image by using SIFT feature matching and perspective transformation techniques, and verify the effectiveness of the image stitching process.
 
@@ -192,7 +183,23 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
  </tr>
 </table>
 
+###### Picture-2
+<table> 
+<tr> 
+<td><img src="./Experimental_Pictures/2-1.jpg" width="250px" height="200px" alt="图片1"></td> 
+<td><img src="./Experimental_Pictures/2-2.jpg" width="250px" height="200px" alt="图片2"></td> 
+<td><img src="./Experimental_Pictures/2-1-1.png" width="500px" height="200px" alt="图片3"></td>  
+</tr>
+</table>
 
+###### Picture-3
+<table> 
+<tr> 
+<td><img src="./Experimental_Pictures/3-1.jpg" width="250px" height="200px" alt="图片1"></td> 
+<td><img src="./Experimental_Pictures/3-2.jpg" width="250px" height="200px" alt="图片2"></td> 
+<td><img src="./Experimental_Pictures/3-1-1.png" width="500px" height="200px" alt="图片3"></td>  
+</tr>
+</table>
 
 
 
