@@ -163,7 +163,7 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
 ## 3.Experimental Results and Analysis
 
 ####
-![1.1](./Experimental_Pictures/1.1.jpg)
+![1-1](./Experimental_Pictures/1-1.jpg)
 
 
 
