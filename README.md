@@ -4,19 +4,19 @@
 ##### 这个实验基于SIFT特征匹配和透视变换完成图像拼接
 
 ## 1.Experimental Purpose
-##### To stitch two images with overlapping regions into a complete image by using SIFT feature matching and perspective transformation techniques, and verify the effectiveness of the image stitching process.
+###### To stitch two images with overlapping regions into a complete image by using SIFT feature matching and perspective transformation techniques, and verify the effectiveness of the image stitching process.
 
-##### 利用SIFT特征匹配和透视变换技术，将具有重叠区域的两幅图像拼接成一幅完整图像，并验证图像拼接过程的有效性。
+###### 利用SIFT特征匹配和透视变换技术，将具有重叠区域的两幅图像拼接成一幅完整图像，并验证图像拼接过程的有效性。
 
 ## 2.Experimental Content
 
-##### 2.1 Image Reading and Preprocessing
+#### 2.1 Image Reading and Preprocessing
 
-##### 图像读取与预处理
+###### 图像读取与预处理
 
-##### Read the two images to be stitched and convert them into grayscale images to prepare for subsequent feature extraction
+###### Read the two images to be stitched and convert them into grayscale images to prepare for subsequent feature extraction
 
-##### 读取待拼接的两张图像，并将其转为灰度图，为后续特征提取做准备
+###### 读取待拼接的两张图像，并将其转为灰度图，为后续特征提取做准备
 
 ```
 import cv2
@@ -33,13 +33,13 @@ gray_a = cv2.cvtColor(img_a,cv2.COLOR_BGR2GRAY)
 gray_b = cv2.cvtColor(img_b,cv2.COLOR_BGR2GRAY)
 ```
 
-##### 2.2 SIFT Feature Extraction and Matching
+#### 2.2 SIFT Feature Extraction and Matching
 
-##### SIFT特征提取与匹配
+###### SIFT特征提取与匹配
 
-##### Initialize the SIFT detector to extract feature points and descriptors from the two grayscale images.Use the FLANN matcher to match the features,and then filter out high-quality matching points through Lowe's ratio test.
+###### Initialize the SIFT detector to extract feature points and descriptors from the two grayscale images.Use the FLANN matcher to match the features,and then filter out high-quality matching points through Lowe's ratio test.
 
-##### 初始化 SIFT 检测器，提取两张灰度图的特征点与描述符，用 FLANN 匹配器匹配特征，再通过 Lowe's 比率测试筛选优质匹配点
+###### 初始化 SIFT 检测器，提取两张灰度图的特征点与描述符，用 FLANN 匹配器匹配特征，再通过 Lowe's 比率测试筛选优质匹配点
 
 ```
 #初始化SIFT检测器并提取特征
@@ -84,13 +84,13 @@ src_pts = np.float32([kp_b[m.trainIdx].pt for m in good_matches]).reshape(-1,1,2
 dst_pts = np.float32([kp_a[m.queryIdx].pt for m in good_matches]).reshape(-1,1,2)#图像a的关键点
 ```
 
-##### 2.3 Perspective Transformation and Image Fusion
+#### 2.3 Perspective Transformation and Image Fusion
 
-##### 透视变换与图像融合
+###### 透视变换与图像融合
 
-##### Calculate the homography matrix using the RANSAC algorithm based on the high-quality matching points,determine the size of stitched image,perform perspective transformation on one of the images,and then copy the other image to the corresponding position in the fused image
+###### Calculate the homography matrix using the RANSAC algorithm based on the high-quality matching points,determine the size of stitched image,perform perspective transformation on one of the images,and then copy the other image to the corresponding position in the fused image
 
-##### 基于优质匹配点，用RANSAC算法计算单应矩阵，确定,拼接后的图像大小，将其中一张图片透射变换，把另一张图片复制到对应的位置
+###### 基于优质匹配点，用RANSAC算法计算单应矩阵，确定,拼接后的图像大小，将其中一张图片透射变换，把另一张图片复制到对应的位置
 
 ```
 #使用RANSAC算法估计单应矩阵（透视变换矩阵）
@@ -139,13 +139,13 @@ fus_img = cv2.warpPerspective(
 fus_img[-y_min:h_a - y_min,-x_min:w_a - x_min] = img_a
 ```
 
-##### 2.4 Result Visualization
+#### 2.4 Result Visualization
 
-##### 结果可视化
+###### 结果可视化
 
-##### Use matplotlib plot the orginal images,the feature matching results,and the final stitched images,so as to display the experimental effect.
+###### Use matplotlib plot the orginal images,the feature matching results,and the final stitched images,so as to display the experimental effect.
 
-##### 用matplotlib画出原始图像，特征匹配结果，最后拼接的图像作为实验效果
+###### 用matplotlib画出原始图像，特征匹配结果，最后拼接的图像作为实验效果
 
 ```
 #显示匹配关键点和拼接结果
