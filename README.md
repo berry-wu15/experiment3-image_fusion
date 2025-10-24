@@ -205,8 +205,15 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
 </tr>
 </table>
 
-从结果图可判断图像拼接正确。原始图像细节完整，匹配点连接图无大量错配，拼接结果图过渡自然、无错位重影，且所有像素均在可见区域。
+#### 从结果图可判断图像拼接正确。原始图像细节完整，匹配点连接图无大量错配，拼接结果图过渡自然、无错位重影，且所有像素均在可见区域。
 
-实验通过多步方法实现拼接。先以cv2.imread读图、cv2.cvtColor转灰度图；再用 SIFT 提特征、FLANN 做匹配；最后靠cv2.findHomography算矩阵、cv2.warpPerspective做变换，完成图像融合。
+#### 实验通过多步方法实现拼接。先以cv2.imread读图、cv2.cvtColor转灰度图；再用 SIFT 提特征、FLANN 做匹配；最后靠cv2.findHomography算矩阵、cv2.warpPerspective做变换，完成图像融合。
 
-Lowe's 比率测试（阈值 0.7）筛选出优质匹配点，RANSAC 算法排除外点确保单应矩阵精度。同时通过角点计算与平移矩阵，避免了像素丢失和错位。从而实现拼接的顺利。
+#### Lowe's 比率测试（阈值 0.7）筛选出优质匹配点，RANSAC 算法排除外点确保单应矩阵精度。同时通过角点计算与平移矩阵，避免了像素丢失和错位。从而实现拼接的顺利。
+
+
+## 4.Experimental Summary
+#### 4.1
+本次实验用 Python 结合 OpenCV 实现图像拼接，先通过cv2.imread读取图像、cv2.cvtColor转灰度图，完成基础预处理。再用 SIFT 算法提特征、FLANN 匹配器做匹配并经 Lowe's 比率测试筛优质点，最后靠 RANSAC 算单应矩阵、cv2.warpPerspective做透视变换完成拼接。同时用 matplotlib 的 subplot 同屏展示 4 幅图像，清晰呈现实验结果，加深对技术原理的理解。
+
+#### 4.2
