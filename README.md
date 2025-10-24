@@ -102,6 +102,7 @@ dst_pts = np.float32([kp_a[m.queryIdx].pt for m in good_matches]).reshape(-1,1,2
 ```
 H,_ = cv2.findHomography(src_pts,dst_pts,cv2.RANSAC,3.0)
 #返回H（3×3单应矩阵）和mask（匹配点是否为inlier的掩码）
+#_：这里用下划线忽略了第二个返回值 mask（掩码数组），mask 会标记哪些点是内点（1）、哪些是外点（0），方便后续筛选有效匹配。
 ```
 ##
 ###### 2.3.2获取输入图像的尺寸：img_a.shape[:2]返回(高度, 宽度)，因为OpenCV中图像格式为(H,W,C)
@@ -214,6 +215,7 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
 
 ## 4.Experimental Summary
 #### 4.1
-本次实验用 Python 结合 OpenCV 实现图像拼接，先通过cv2.imread读取图像、cv2.cvtColor转灰度图，完成基础预处理。再用 SIFT 算法提特征、FLANN 匹配器做匹配并经 Lowe's 比率测试筛优质点，最后靠 RANSAC 算单应矩阵、cv2.warpPerspective做透视变换完成拼接。同时用 matplotlib 的 subplot 同屏展示 4 幅图像，清晰呈现实验结果，加深对技术原理的理解。
+本次实验用 Python 结合 OpenCV 实现图像拼接，先通过cv2.imread读取图像、cv2.cvtColor转灰度图，完成基础预处理。再用 SIFT 算法提取特征、FLANN 匹配器做匹配并经 Lowe's 比率测试筛优质点，最后靠 RANSAC 算单应矩阵、cv2.warpPerspective做透视变换完成拼接。同时用 matplotlib 的 subplot 同屏展示 4 幅图像，清晰呈现实验结果，加深对技术原理的理解。
 
 #### 4.2
+从这次实验中我学习到图像拼接的全流程操作，也知道了为什么要转换为灰度图像来处理，因为灰度图像是单通道计算起来不会消耗很多资源。也知道了使用RANSAC算法估计单应矩阵（透视变换矩阵）。其实过程中理解起来有一些的复杂，但是全部串起来理解就不那么难了。通过不同的实验图片对图像拼接任务有了更进一步的验证。
