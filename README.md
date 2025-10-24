@@ -28,7 +28,7 @@ img_a = cv2.imread(r"C:\Users\Wxy\Desktop\computer-vision\3-1.jpg")
 img_b = cv2.imread(r"C:\Users\Wxy\Desktop\computer-vision\3-2.jpg")
 ```
 ```
-#图像a转灰度：cv2.COLOR_BGR2GRAY将BGR格式转为灰度格式#hsl(39,100%,50%)
+#图像a转灰度：cv2.COLOR_BGR2GRAY将BGR格式转为灰度格式
 gray_a = cv2.cvtColor(img_a,cv2.COLOR_BGR2GRAY)
 gray_b = cv2.cvtColor(img_b,cv2.COLOR_BGR2GRAY)
 ```
@@ -69,8 +69,6 @@ for m,n in matches:
 if m.distance <0.6 * n.distance:
         good_matches.append(m)
 ```
-
-#### 2.3 
 ```
 #绘制匹配的SIFT关键点，绘制匹配点：drawMatches()将两张图像的关键点与匹配线绘制在同一张图中
 matched_keypoints_img = cv2.drawMatches(
@@ -85,6 +83,35 @@ None,flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS
 src_pts = np.float32([kp_b[m.trainIdx].pt for m in good_matches]).reshape(-1,1,2)#图像b的关键点
 dst_pts = np.float32([kp_a[m.queryIdx].pt for m in good_matches]).reshape(-1,1,2)#图像a的关键点
 ```
+
+#### 2.3 Perspective Transformation and Image Fusion
+
+透视变换与图像融合
+
+Calculate the homography matrix using the RANSAC algorithm based on the high-quality matching points,determine the size of stitched image,perform perspective transformation on one of the images,and then copy the other image to the corresponding position in the fused image
+
+基于优质匹配点，用RANSAC算法计算单应矩阵，确定,拼接后的图像大小，将其中一张图片透射变换，把另一张图片复制到对应的位置
+
+```
+```
+
+#### 2.4 Result Visualization
+
+结果可视化
+
+Use matplotlib plot the orginal images,the feature matching results,and the final stitched images,so as to display the experimental effect.
+
+用matplotlib画出原始图像，特征匹配结果，最后拼接的图像作为实验效果
+
+```
+```
+
+## 3.Experimental Results and Analysis
+
+####
+
+
+
 
 
 
