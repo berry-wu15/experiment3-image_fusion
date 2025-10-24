@@ -1,4 +1,4 @@
-# Experiment3-image_fusion(实验三-图像融合)
+<img width="1417" height="767" alt="image" src="https://github.com/user-attachments/assets/26ccf19f-72ee-445a-b2a9-807f1775c616" /># Experiment3-image_fusion(实验三-图像融合)
 
 ##### This experiment achieves image stitching based on SIFT feature matching and perspective transformation.
 
@@ -175,7 +175,15 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
 ```
 
 ## 3.Experimental Results and Analysis
+##### Three sets of images were tested in this experiment.
 
+###### 本实验测试了三组图像
+
+##### From  left to right are the original images A and B,followed by the generated results images(including original image A,original image B,the image with connected high-quality matching points,and the stitched result image)
+
+###### 从左到右依次为原始图像A和B，以及生成的结果图像（包括原始图像A、原始图像B、含有连接的高质量匹配点的图像，以及拼接后的结果图像）
+
+###### Picture-1
 <table>
  <tr>
  <td><img src="./Experimental_Pictures/1-1.jpg" width="250px" height="200px" alt="图片1"></td>
@@ -184,9 +192,23 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
  </tr>
 </table>
 
+###### Picture-2
+<table> 
+<tr> 
+<td><img src="./Experimental_Pictures/2-1.jpg" width="250px" height="200px" alt="图片1"></td> 
+<td><img src="./Experimental_Pictures/2-2.jpg" width="250px" height="200px" alt="图片2"></td> 
+<td><img src="./Experimental_Pictures/2-1-1.png" width="500px" height="200px" alt="图片3"></td>  
+</tr>
+</table>
 
-
-
+###### Picture-2
+<table> 
+<tr> 
+<td><img src="./Experimental_Pictures/3-1.jpg" width="250px" height="200px" alt="图片1"></td> 
+<td><img src="./Experimental_Pictures/3-2.jpg" width="250px" height="200px" alt="图片2"></td> 
+<td><img src="./Experimental_Pictures/3-1-1.png" width="500px" height="200px" alt="图片3"></td>  
+</tr>
+</table>
 
 
 
