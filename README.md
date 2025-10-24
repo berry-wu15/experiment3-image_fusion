@@ -5,8 +5,6 @@
 ###### 这个实验基于SIFT特征匹配和透视变换完成图像拼接
 
 ##
-#
-#
 
 
 ## 1.Experimental Purpose
@@ -14,12 +12,11 @@
 
 ###### 利用SIFT特征匹配和透视变换技术，将具有重叠区域的两幅图像拼接成一幅完整图像，并验证图像拼接过程的有效性。
 
-
-
+##
 
 
 ## 2.Experimental Content
-
+##
 #### 2.1 Image Reading and Preprocessing
 
 ##### Read the two images to be stitched and convert them into grayscale images to prepare for subsequent feature extraction
