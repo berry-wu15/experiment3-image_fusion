@@ -6,10 +6,14 @@
 
 
 
+
+
 ## 1.Experimental Purpose
 ##### To stitch two images with overlapping regions into a complete image by using SIFT feature matching and perspective transformation techniques, and verify the effectiveness of the image stitching process.
 
 ###### 利用SIFT特征匹配和透视变换技术，将具有重叠区域的两幅图像拼接成一幅完整图像，并验证图像拼接过程的有效性。
+
+
 
 
 
