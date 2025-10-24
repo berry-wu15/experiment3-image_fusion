@@ -180,8 +180,7 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
  <tr>
  <td><img src="./Experimental_Pictures/1-1.jpg" width="250px" height="200px" alt="图片1"></td>
  <td><img src="./Experimental_Pictures/1-2.jpg" width="250px" height="200px" alt="图片2"></td>
- <td><img src="./Experimental_Pictures/1-1.jpg" width="250px" height="200px" alt="图片1"></td> 
- <td><img src="./Experimental_Pictures/1-2.jpg" width="250px" height="200px" alt="图片2"></td>
+ <td><img src="./Experimental_Pictures/1-1-1.jpg" width="500px" height="200px" alt="图片3"></td> 
  </tr>
 </table>
 
