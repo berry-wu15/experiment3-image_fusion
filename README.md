@@ -162,8 +162,12 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
 
 ## 3.Experimental Results and Analysis
 
-![1-1](./Experimental_Pictures/1-1.jpg)
-
+<table>
+ <tr>
+ <td><img src="./Experimental_Pictures/1-1.jpg" width="300px" height="200px" alt="图片1"></td>
+ <td><img src="./Experimental_Pictures/1-2.jpg" width="300px" height="200px" alt="图片2"></td>
+ </tr>
+</table>
 
 
 
