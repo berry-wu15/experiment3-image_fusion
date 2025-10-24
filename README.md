@@ -1,3 +1,6 @@
+# Experiment3-image_fusion(实验三-图像融合)
+#### This experiment achieves image stitching based on SIFT feature matching and perspective transformation
+
 ## 1.Experimental Purpose
 ##### To stitch two images with overlapping regions into a complete image by using SIFT feature matching and perspective transformation techniques, and verify the effectiveness of the image stitching process.
 
