@@ -177,27 +177,27 @@ plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
 ###### Picture-1
 <table>
  <tr>
- <td><img src="./Experimental_Pictures/1-1.jpg" width="250px" height="200px" alt="图片1"></td>
- <td><img src="./Experimental_Pictures/1-2.jpg" width="250px" height="200px" alt="图片2"></td>
- <td><img src="./Experimental_Pictures/1-1-1.png" width="500px" height="200px" alt="图片3"></td> 
+ <td><img src="./Experimental_Pictures/1-1.jpg" width="250px" height="300px" alt="图片1"></td>
+ <td><img src="./Experimental_Pictures/1-2.jpg" width="250px" height="300px" alt="图片2"></td>
+ <td><img src="./Experimental_Pictures/1-1-1.png" width="500px" height="300px" alt="图片3"></td> 
  </tr>
 </table>
 
 ###### Picture-2
 <table> 
 <tr> 
-<td><img src="./Experimental_Pictures/2-1.jpg" width="250px" height="200px" alt="图片1"></td> 
-<td><img src="./Experimental_Pictures/2-2.jpg" width="250px" height="200px" alt="图片2"></td> 
-<td><img src="./Experimental_Pictures/2-1-1.png" width="500px" height="200px" alt="图片3"></td>  
+<td><img src="./Experimental_Pictures/2-1.jpg" width="250px" height="399px" alt="图片1"></td> 
+<td><img src="./Experimental_Pictures/2-2.jpg" width="250px" height="399px" alt="图片2"></td> 
+<td><img src="./Experimental_Pictures/2-1-1.png" width="500px" height="399px" alt="图片3"></td>  
 </tr>
 </table>
 
 ###### Picture-3
 <table> 
 <tr> 
-<td><img src="./Experimental_Pictures/3-1.jpg" width="250px" height="200px" alt="图片1"></td> 
-<td><img src="./Experimental_Pictures/3-2.jpg" width="250px" height="200px" alt="图片2"></td> 
-<td><img src="./Experimental_Pictures/3-1-1.png" width="500px" height="200px" alt="图片3"></td>  
+<td><img src="./Experimental_Pictures/3-1.jpg" width="250px" height="500px" alt="图片1"></td> 
+<td><img src="./Experimental_Pictures/3-2.jpg" width="250px" height="500px" alt="图片2"></td> 
+<td><img src="./Experimental_Pictures/3-1-1.png" width="500px" height="500px" alt="图片3"></td>  
 </tr>
 </table>
 
