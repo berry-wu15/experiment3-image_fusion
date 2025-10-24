@@ -93,6 +93,50 @@ Calculate the homography matrix using the RANSAC algorithm based on the high-qua
 基于优质匹配点，用RANSAC算法计算单应矩阵，确定,拼接后的图像大小，将其中一张图片透射变换，把另一张图片复制到对应的位置
 
 ```
+#使用RANSAC算法估计单应矩阵（透视变换矩阵）
+#计算单应矩阵：cv2.findHomography()输入源点、目标点，用RANSAC鲁棒算法，重投影误差阈值5.0；
+#返回H（3×3单应矩阵）和mask（匹配点是否为inlier的掩码）
+H,_ = cv2.findHomography(src_pts,dst_pts,cv2.RANSAC,3.0)
+```
+```
+#获取输入图像的尺寸
+#获取图像a的高和宽：img_a.shape[:2]返回(高度, 宽度)，因为OpenCV中图像格式为(H,W,C)
+h_a, w_a = img_a.shape[:2]
+h_b, w_b = img_b.shape[:2]
+```
+```
+#计算图像b变换后的四个角坐标
+#定义图像b的四个原始角点：按“左上(0,0)、左下(0,h_b)、右下(w_b,h_b)、右上(w_b,0)”顺序
+pts = np.float32([[0,0],[0,h_b],[w_b,h_b],[w_b,0]]).reshape(-1,1,2)
+#计算变换后的角点：cv2.perspectiveTransform()用单应矩阵H变换图像b的角点，得到在图像a坐标系中的位置
+dst_corners = cv2.perspectiveTransform(pts,H)
+```
+```
+#确定拼接后图像的最终尺寸（包含所有图像）
+#合并所有角点：将图像b变换后的角点（dst_corners）与图像a的原始角点（[0,0],[w_a,0],[w_a,h_a],[0,h_a]）合并；
+all_corners = np.concatenate([dst_corners,np.float32([[0,0],[w_a,0],[w_a,h_a],[0,h_a]]).reshape(-1,1,2)],axis=0)
+#计算拼接图像的最小/最大坐标：all_corners.min/max(axis=0)获取所有角点的x/y最小/最大值；
+#ravel()将二维数组展平，减0.5/加0.5是为了避免整数截断误差，最后转为int32类型（坐标需为整数）
+[x_min,y_min] = np.int32(all_corners.min(axis=0).ravel() - 0.5)
+[x_max,y_max] = np.int32(all_corners.max(axis=0).ravel() + 0.5)
+```
+```
+#创建平移矩阵确保所有像素都在可见区域内
+#构造3×3平移矩阵：透视变换需3×3矩阵，[1,0,-x_min]表示x轴平移-x_min（抵消负坐标），[0,1,-y_min]表示y轴平移-y_min；
+translation_matrix = np.array([[1,0,-x_min],[0,1,-y_min],[0,0,1]],dtype=np.float32)
+```
+```
+#对图像b进行透视变换和平移
+#执行透视变换：cv2.warpPerspective()根据组合矩阵变换图像b，输出尺寸为(x_max-x_min, y_max-y_min)（覆盖所有像素）
+fus_img = cv2.warpPerspective(
+    img_b,
+    translation_matrix @ H, #组合平移矩阵和单应矩阵    
+(x_max - x_min,y_max - y_min) #输出图像尺寸
+)
+```
+```
+#将图像a复制到拼接结果的对应位置
+fus_img[-y_min:h_a - y_min,-x_min:w_a - x_min] = img_a
 ```
 
 #### 2.4 Result Visualization
@@ -104,12 +148,22 @@ Use matplotlib plot the orginal images,the feature matching results,and the fina
 用matplotlib画出原始图像，特征匹配结果，最后拼接的图像作为实验效果
 
 ```
+#显示匹配关键点和拼接结果
+plt.figure(figsize=(20,20))
+plt.subplot(1,4,1)
+plt.imshow(cv2.cvtColor(img_a,cv2.COLOR_BGR2RGB))
+plt.subplot(1,4,2)
+plt.imshow(cv2.cvtColor(img_b,cv2.COLOR_BGR2RGB))
+plt.subplot(1,4,3)
+plt.imshow(cv2.cvtColor(matched_keypoints_img,cv2.COLOR_BGR2RGB))
+plt.subplot(1,4,4)
+plt.imshow(cv2.cvtColor(fus_img,cv2.COLOR_BGR2RGB))
 ```
 
 ## 3.Experimental Results and Analysis
 
 ####
-
+![original_image1]()
 
 
 
