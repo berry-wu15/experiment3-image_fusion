@@ -28,7 +28,7 @@ img_a = cv2.imread(r"C:\Users\Wxy\Desktop\computer-vision\3-1.jpg")
 img_b = cv2.imread(r"C:\Users\Wxy\Desktop\computer-vision\3-2.jpg")
 ```
 ```
-#图像a转灰度：cv2.COLOR_BGR2GRAY将BGR格式转为灰度格式
+#图像a转灰度：cv2.COLOR_BGR2GRAY将BGR格式转为灰度格式`hsl(39,100%,50%)`
 gray_a = cv2.cvtColor(img_a,cv2.COLOR_BGR2GRAY)
 gray_b = cv2.cvtColor(img_b,cv2.COLOR_BGR2GRAY)
 ```
